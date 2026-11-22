@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <h1 class="app-title">Quiz App</h1>
+
+        <!-- ========== START SCREEN ========== -->
+        <section id="start-screen" class="screen card">
+            <h2>Start a Quiz</h2>
+            <p class="muted">Pick a category and difficulty, then answer 10 questions. You get 15 seconds for each one.</p>
+
+            <div class="field">
+                <label for="category-select">Category</label>
+                <select id="category-select">
+                    <option value="">Any Category</option>
+                    <option value="9">General Knowledge</option>
+                    <option value="10">Entertainment: Books</option>
+                    <option value="11">Entertainment: Film</option>
+                    <option value="12">Entertainment: Music</option>
+                    <option value="15">Entertainment: Video Games</option>
+                    <option value="17">Science &amp; Nature</option>
+                    <option value="18">Science: Computers</option>
+                    <option value="19">Science: Mathematics</option>
+                    <option value="21">Sports</option>
+                    <option value="22">Geography</option>
+                    <option value="23">History</option>
+                    <option value="24">Politics</option>
+                    <option value="25">Art</option>
+                    <option value="27">Animals</option>
+                    <option value="28">Vehicles</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="difficulty-select">Difficulty</label>
+                <select id="difficulty-select">
+                    <option value="">Any Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+
+            <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+
+            <p id="loading-msg" class="loading hidden" role="status">
+                <span class="spinner" aria-hidden="true"></span>
+                Loading...
+            </p>
+
+            <div id="error-box" class="error-box hidden" role="alert">
+                <p id="error-msg"></p>
+                <button id="retry-btn" class="btn btn-outline">Try again</button>
+            </div>
+
+            <p id="best-score" class="best-score"></p>
+        </section>
+
+        <!-- ========== QUIZ SCREEN ========== -->
+        <section id="quiz-screen" class="screen card hidden">
+            <div class="quiz-top">
+                <span id="progress-text">Question 1 of 10</span>
+                <span id="score-text">Score: 0</span>
+            </div>
+
+            <div class="timer">
+                <div class="timer-track">
+                    <div id="timer-bar" class="timer-bar"></div>
+                </div>
+                <span id="timer-text" class="timer-text">15s</span>
+            </div>
+
+            <h2 id="question-text" class="question-text"></h2>
+
+            <!-- JS creates the answer buttons here -->
+            <div id="answers" class="answers"></div>
+
+            <p id="feedback" class="feedback" aria-live="polite"></p>
+
+            <button id="next-btn" class="btn btn-primary" disabled>Next</button>
+        </section>
+
+        <!-- ========== RESULTS SCREEN ========== -->
+        <section id="results-screen" class="screen card hidden">
+            <h2>Results</h2>
+            <p id="final-score" class="final-score"></p>
+            <p id="final-percent" class="final-percent"></p>
+            <p id="result-message" class="result-message"></p>
+            <p id="new-best" class="new-best hidden">New best score!</p>
+            <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
